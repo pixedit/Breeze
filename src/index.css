@@ -1,0 +1,54 @@
+/* background-color: #37474F; */
+/* background-color: #E0C3A5; */
+/* background-color: #ECEFF1; */
+/* background-color: #B0BEC5; */
+/* background-color: #00796B; */
+/* background-color: goldenrod; */
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Vazirmatn:wght@100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Arimo", sans-serif;
+    height: 100vh;
+    background: linear-gradient(to bottom, #2f4c5b, #406f84, #5fa2c1);
+    color: #B0BEC5;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 5rem;
+}
+
+.weather-app {
+    margin: 0 5rem;
+    background-color: rgba(240, 248, 255, 0.148);
+    border-radius: 10px;
+}
+
+
+/* /////////////// RESPONSIVE  */
+@media (max-width:300px) {
+    .container {
+        margin-top: 2rem;
+    }
+
+    .weather-app {
+        margin: 0 0.5rem;
+    }
+}

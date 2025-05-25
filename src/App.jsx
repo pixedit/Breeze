@@ -6,7 +6,21 @@ import Daily from "./pages/daily/Daily";
 import Hourly from "./pages/hourly/Hourly";
 
 const App = () => {
-	return <div></div>;
+	return (
+		<Router>
+			<div className="container">
+				<div className="weather-app">
+					<Navbar />
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/weekly" element={<Weekly />} />
+						<Route path="/daily" element={<Daily />} />
+						<Route path="/hourly" element={<Hourly />} />
+					</Routes>
+				</div>
+			</div>
+		</Router>
+	);
 };
 
 export default App;
