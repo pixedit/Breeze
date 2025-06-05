@@ -1,0 +1,39 @@
+.hourly-data-wrapper dt,
+dd {
+    font-size: 15px;
+    align-self: center;
+
+}
+
+.hourly-condition {
+    color: rgb(245, 226, 198);
+}
+
+
+.hourly-data-wrapper {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.hourly-data-wrapper dl {
+    display: flex;
+    align-self: center;
+}
+
+.hourly-data-wrapper dl div {
+    border-right: 1px solid rgba(200, 203, 209, 0.444);
+    max-width: 600px;
+    padding: 0 10px 0 0;
+    margin-top: 1.5rem;
+
+}
+
+.hourly-data-wrapper dl div:last-child {
+    border: unset;
+}
+
+.hourly-data-wrapper dl div dt {
+    flex: 1;
+}

@@ -1,3 +1,4 @@
+import SearchBar from "../../assets/components/searchBar/SearchBar";
 import "./home.css";
 import { CiSun } from "react-icons/ci";
 const Home = () => {

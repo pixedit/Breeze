@@ -32,16 +32,21 @@ a {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    margin-top: 5rem;
 }
 
 .weather-app {
     margin: 0 5rem;
-    background-color: rgba(24, 24, 24, 0.148);
     border-radius: 10px;
     padding: 0 4rem;
+    background-color: #2f4c5ba5;
 }
 
+.wrapper {
+    background-color: rgba(24, 24, 24, 0.148);
+    padding: 0.5rem 1rem;
+    margin: 0.5rem auto;
+    border-radius: 15px;
+}
 
 /* /////////////// RESPONSIVE  */
 @media (max-width:300px) {

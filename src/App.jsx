@@ -4,11 +4,13 @@ import Home from "./pages/home/Home";
 import Weekly from "./pages/weekly/Weekly";
 import Daily from "./pages/daily/Daily";
 import Hourly from "./pages/hourly/Hourly";
+import SearchBar from "./assets/components/searchBar/SearchBar";
 
 const App = () => {
 	return (
 		<Router>
 			<div className="container">
+				<SearchBar />
 				<div className="weather-app">
 					<Navbar />
 					<Routes>

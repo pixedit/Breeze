@@ -23,7 +23,7 @@ h3 {
 /* /////////////// current temp section style */
 .cur-temp-section {
     display: flex;
-
+    align-items: center;
 }
 
 .real-temp {
