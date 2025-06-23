@@ -29,6 +29,10 @@ a {
     text-decoration: none;
 }
 
+dl {
+    line-height: 2rem;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -46,6 +50,12 @@ a {
     padding: 0.5rem 1rem;
     margin: 0.5rem auto;
     border-radius: 15px;
+}
+
+
+.bold {
+    font-size: 22px;
+    color: rgb(218, 234, 234);
 }
 
 /* /////////////// RESPONSIVE  */

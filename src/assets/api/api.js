@@ -1,26 +1,42 @@
-// const API = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m"
-
 import axios from "axios";
 
-const fetchCurrentWeather = async (latitude, longitude, dispatch) => {
+const API_KEY = "950fcb05e96122a1c462492f54d2e444";
+const GEO_URL = "http://api.openweathermap.org/geo/1.0/direct";
+const WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather";
+
+///////////// Fetch latitude and longitude for a given city.
+export const fetchCoordinates = async (city) => {
 	try {
-		dispatch({ type: "SET_LOADING", payload: true });
-		const response = await axios.get("https://api.open-meteo.com/v1/forecast", {
-			params: {
-				latitude,
-				longitude,
-				current_weather: true,
-			},
-		});
-		dispatch({
-			type: "SET_CURRENT_WEATHER",
-			payload: response.data.current_weather,
-		});
-		dispatch({ type: "SET_LOADING", payload: false });
+		const response = await axios.get(
+			`${GEO_URL}?q=${city}&limit=1&appid=${API_KEY}`
+		);
+		if (response.data.length > 0) {
+			return { lat: response.data[0].lat, lon: response.data[0].lon };
+		} else {
+			console.error("City not found");
+			return null;
+		}
 	} catch (error) {
-		dispatch({ type: "SET_ERROR", payload: error.message });
-		dispatch({ type: "SET_LOADING", payload: false });
+		console.error("Geocoding error:", error.message);
+		return null;
 	}
 };
 
-export default fetchCurrentWeather;
+//////////////  Fetch weather data using latitude & longitude.
+export const fetchWeather = async (city) => {
+	try {
+		const coords = await fetchCoordinates(city);
+		if (!coords) return null;
+
+		console.log(`Fetching weather data for ${city}...`);
+		const response = await axios.get(
+			`${WEATHER_URL}?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}`
+		);
+		console.log(response.data);
+
+		return response.data;
+	} catch (error) {
+		console.error("Error fetching weather data:", error.message);
+		return null;
+	}
+};

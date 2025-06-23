@@ -1,101 +1,101 @@
-import SearchBar from "../../assets/components/searchBar/SearchBar";
+import { useContext } from "react";
 import "./home.css";
-import { CiSun } from "react-icons/ci";
+import { WeatherContext } from "../../assets/context/WeatherContext";
+import { convertUnixToTime } from "../../assets/utils/utils";
+import Hourly from "../hourly/Hourly";
+
 const Home = () => {
+	const { state } = useContext(WeatherContext);
+	const data = state.currentWeather;
+
+	if (state.loading) return <p>Loading...</p>;
+	if (!data) return <p>No weather data yet. Please search a city!</p>;
+
+	const sunrise = convertUnixToTime(data.sys.sunrise, data.timezone); // → "06:08 AM"
+	const sunset = convertUnixToTime(data.sys.sunset, data.timezone); // → "07:49 PM"
+
 	return (
-		<div className="home-wrapper">
-			<div className="current-summary">
-				<h3>Summary</h3>
-				<dl>
-					<div>
-						<dt>Today&#39;s weather:</dt>
-						<dd>45</dd>
-					</div>
-					<div>
-						<dt>Tonight&#39;s main</dt>
-						<dd>
-							Becomes clear and soft <span>35C</span>
-						</dd>
-					</div>
-				</dl>
-			</div>
-			<div className="current-weather">
-				<h3>Current weather</h3>
+		<div>
+			{data && (
 				<div className="cur-temp-section">
-					<div className="real-temp">
-						<div className="temp">
-							<CiSun />
-							<span>30C</span>
-						</div>
-						<p>
-							Feels like: <span>35C</span>
-						</p>
-					</div>
-					<div className="current-data">
+					<div className="left-section">
 						<dl>
 							<div>
-								<dt>Wind speed:</dt>
-								<dd>3.13MPH</dd>
+								<dt>feels like:</dt>
+								<dd>{data?.main?.feels_like}°F</dd>
 							</div>
 							<div>
-								<dt>Humidity:</dt>
-								<dd>89</dd>
+								<dt>pressure:</dt>
+								<dd>{data.main.pressure} hPa</dd>
 							</div>
 							<div>
-								<dt>Clouds:</dt>
-								<dd>53</dd>
+								<dt>wind speed:</dt>
+								<dd>{data.wind.speed} m/s</dd>
 							</div>
 							<div>
-								<dt>Pressure:</dt>
-								<dd>10000</dd>
+								<dt>wind deg:</dt>
+								<dd>{data.wind.deg} km</dd>
+							</div>
+
+							{data.wind.gust && (
+								<div>
+									<dt>wind gust:</dt>
+									<dd>{data.wind.gust}</dd>
+								</div>
+							)}
+							<div>
+								<dt>visibility:</dt>
+								<dd>{data.visibility}</dd>
+							</div>
+						</dl>
+					</div>
+					<div className="main">
+						<h3>
+							{data.name} <span>{data.sys.country}</span>
+						</h3>
+						<strong>Today</strong>
+						<div className="cur-weather">
+							<img
+								src={`https://openweathermap.org/img/wn/${state.currentWeather.weather[0].icon}@2x.png`}
+								alt="Weather Icon"
+							/>
+							<p>{data.main.temp}°F</p>
+						</div>
+					</div>
+					<div className="right-section">
+						<dl>
+							<div className="bold">{data.weather[0].description}</div>
+							<div>
+								<dt>min:</dt>
+								<dd>{data.main.temp_min}°F</dd>
+							</div>
+							<div>
+								<dt>max:</dt>
+								<dd>{data.main.temp_max}°F</dd>
+							</div>
+							<div>
+								<dt>humidity:</dt>
+								<dd>{data.main.humidity}</dd>
+							</div>
+							{data.main.sea_level && (
+								<div>
+									<dt>sea level:</dt>
+									<dd>{data.main.sea_level} hPa</dd>
+								</div>
+							)}
+							<div>
+								<dt>sunrise:</dt>
+								<dd>{sunrise}</dd>
+							</div>
+							<div>
+								<dt>sunset:</dt>
+								<dd>{sunset}</dd>
 							</div>
 						</dl>
 					</div>
 				</div>
-				<dl style={{ display: "flex", justifyContent: "center" }}>
-					<div>
-						<dt>Wind gusts:</dt>
-						<dd>6.71</dd>
-					</div>
-					<div>
-						<dt>Nutshell:</dt>
-						<dd>broken clouds</dd>
-					</div>
-				</dl>
-			</div>
-			<div className="weather-description">
-				<h3>Description</h3>
-				<p>
-					SMALL CRAFT ADVISORY REMAINS IN EFFECT FROM 5 PM THIS AFTERNOON TO 3
-					AM EST FRIDAY... WHAT...North winds 15 to 20 kt with gusts up to 25 kt
-					and seas 3 to 5 ft expected. WHERE...Coastal waters from Little Egg
-					Inlet to Great Egg Inlet NJ out 20 nm, Coastal waters from Great Egg
-					Inlet to Cape May NJ out 20 nm and Coastal waters from Manasquan Inlet
-					to Little Egg Inlet NJ out 20 nm. WHEN...From 5 PM this afternoon to 3
-					AM EST Friday. IMPACTS...Conditions will be hazardous to small craft.
-				</p>
-			</div>
-			<div className="hourly-forecast">
-				<h3>Hourly forecast</h3>
-				<div className="hourly-section">
-					<div className="hourly-forecast-card">
-						<p>5 PM</p>
-						<p>AN EMOJI</p>
-						<strong>25C</strong>
-						<p>PRECIP</p>
-					</div>
-					<div className="hourly-forecast-card">
-						<p>5 PM</p>
-						<p>AN EMOJI</p>
-						<strong>25C</strong>
-						<p>PRECIP</p>
-					</div>
-				</div>
-			</div>
-			<div className="summary-description">
-				<h3>Summary</h3>
-				<p>Expect a day of partly cloudy with rain</p>
-			</div>
+			)}
+			<Hourly />
 		</div>
 	);
 };
