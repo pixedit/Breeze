@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import { WeatherContext } from "./WeatherContext";
-import { fetchWeather } from "../api/api";
+import { fetchWeather, fetchHourlyForecast } from "../api/api";
 const initialState = {
 	city: "",
 	currentWeather: null,
@@ -39,6 +39,7 @@ export const WeatherProvider = ({ children }) => {
 
 		try {
 			const weatherData = await fetchWeather(city);
+			const hourly = await fetchHourlyForecast(city);
 
 			if (!weatherData) {
 				dispatch({
@@ -49,6 +50,7 @@ export const WeatherProvider = ({ children }) => {
 			}
 
 			dispatch({ type: "SET_CURRENT_WEATHER", payload: weatherData });
+			dispatch({ type: "SET_HOURLY_WEATHER", payload: hourly });
 			dispatch({ type: "SET_ERROR", payload: null });
 		} catch (error) {
 			dispatch({ type: "SET_ERROR", payload: error.message });
