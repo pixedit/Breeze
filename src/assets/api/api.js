@@ -33,7 +33,6 @@ export const fetchWeather = async (city) => {
 		const response = await axios.get(
 			`${WEATHER_URL}?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}&units=imperial`
 		);
-		console.log(response.data);
 
 		return response.data;
 	} catch (error) {
@@ -55,6 +54,27 @@ export const fetchHourlyForecast = async (city) => {
 		return response.data.list.slice(0, 16); // 24 hour condition
 	} catch (error) {
 		console.error("Error fetching hourly forecast:", error.message);
+		return null;
+	}
+};
+
+////////////////// Fetch daily forecast
+export const fetchDailyForecast = async (city) => {
+	try {
+		const coords = await fetchCoordinates(city);
+		if (!coords) return null;
+
+		const response = await axios.get(
+			`${HOURLY_URL}?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}&units=imperial`
+		);
+		const data = response.data.list;
+		const daily = data.filter((item) => {
+			const date = new Date(item.dt * 1000);
+			return date.getHours() === 12;
+		});
+		return daily;
+	} catch (error) {
+		console.error("Error fetching daily forecast:", error.message);
 		return null;
 	}
 };

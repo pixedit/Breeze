@@ -1,0 +1,58 @@
+.daily-forecast-wrapper {
+    margin: 2rem;
+    padding: 1rem 0;
+}
+
+.daily-forecast-wrapper h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: beige;
+}
+
+.daily-forecast {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    width: 100%;
+    border: 1px solid rgb(198, 198, 198);
+    border-radius: 15px;
+    padding: 1rem 0;
+    margin: 2rem auto;
+
+}
+
+.daily-forecast .day-main {
+    border-right: 1px solid rgb(198, 198, 198);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+.day-nutshel {
+    border: 1px solid rgb(156, 156, 156);
+    text-align: center;
+    padding: 1.2rem;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin: 1.5rem auto;
+}
+
+.day-nutshel img {
+    width: 80%;
+    margin: -0.5rem;
+}
+
+.day-temp {
+    padding: 1rem;
+}
+
+.day-detail {
+    padding: 1rem;
+
+    border-left: 1px solid rgb(198, 198, 198);
+}

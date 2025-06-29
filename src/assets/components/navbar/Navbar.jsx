@@ -8,7 +8,6 @@ const Navbar = () => {
 				<IoHome className="home-button" />
 			</Link>
 			<Link to="/daily">Daily Forecast</Link>
-			<Link to="weekly">Weekly Forecast</Link>
 		</nav>
 	);
 };

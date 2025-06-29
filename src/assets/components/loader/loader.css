@@ -1,0 +1,7 @@
+.loader-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4rem 0;
+    padding: 2rem 0;
+}
