@@ -5,6 +5,8 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import { FreeMode } from "swiper/modules";
 import "./hourly.css";
+import { convertTemp as convert } from "../../assets/utils/utils";
+import { CiDroplet } from "react-icons/ci";
 const Hourly = () => {
 	const { state } = useContext(WeatherContext);
 	const hourlyData = state.hourlyWeather?.slice(0, 24);
@@ -37,8 +39,14 @@ const Hourly = () => {
 									src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
 									alt="icon"
 								/>
-								<p className="hourly-temp">{temp}°</p>
-								<p>{humidity}%</p>
+								<p className="hourly-temp">
+									{convert(temp, state.unit)}
+									<span>°{state.unit}</span>
+								</p>
+								<p className="humidity">
+									<CiDroplet />
+									{humidity}%
+								</p>
 							</div>
 						</SwiperSlide>
 					);

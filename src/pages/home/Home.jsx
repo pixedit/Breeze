@@ -3,6 +3,7 @@ import "./home.css";
 import { WeatherContext } from "../../assets/context/WeatherContext";
 import { convertUnixToTime } from "../../assets/utils/utils";
 import Hourly from "../hourly/Hourly";
+import { convertTemp as convert } from "../../assets/utils/utils";
 
 const Home = () => {
 	const { state } = useContext(WeatherContext);
@@ -22,7 +23,9 @@ const Home = () => {
 						<dl>
 							<div>
 								<dt>feels like:</dt>
-								<dd>{data?.main?.feels_like}°F</dd>
+								<dd>
+									{convert(data.main.feels_like, state.unit)}°{state.unit}
+								</dd>
 							</div>
 							<div>
 								<dt>pressure:</dt>
@@ -59,7 +62,9 @@ const Home = () => {
 								src={`https://openweathermap.org/img/wn/${state.currentWeather.weather[0].icon}@2x.png`}
 								alt="Weather Icon"
 							/>
-							<p>{data.main.temp}°F</p>
+							<p>
+								{convert(data.main.temp, state.unit)}°{state.unit}
+							</p>
 						</div>
 					</div>
 					<div className="right-section">
@@ -67,11 +72,15 @@ const Home = () => {
 							<div className="bold">{data.weather[0].description}</div>
 							<div>
 								<dt>min:</dt>
-								<dd>{data.main.temp_min}°F</dd>
+								<dd>
+									{convert(data.main.temp_min, state.unit)}°{state.unit}
+								</dd>
 							</div>
 							<div>
 								<dt>max:</dt>
-								<dd>{data.main.temp_max}°F</dd>
+								<dd>
+									{convert(data.main.temp_max, state.unit)}°{state.unit}
+								</dd>
 							</div>
 							<div>
 								<dt>humidity:</dt>

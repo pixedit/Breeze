@@ -68,3 +68,14 @@ dd {
 .hourly-temp {
     font-size: 22px;
 }
+
+.hourly-temp span {
+    font-size: 16px;
+    color: rgb(245, 233, 220);
+}
+
+.humidity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

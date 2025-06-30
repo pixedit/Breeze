@@ -29,7 +29,6 @@ export const fetchWeather = async (city) => {
 		const coords = await fetchCoordinates(city);
 		if (!coords) return null;
 
-		console.log(`Fetching weather data for ${city}...`);
 		const response = await axios.get(
 			`${WEATHER_URL}?lat=${coords.lat}&lon=${coords.lon}&appid=${API_KEY}&units=imperial`
 		);

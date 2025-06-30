@@ -10,3 +10,8 @@ export const convertUnixToTime = (unixTime, timezoneOffset) => {
 		timeZone: "UTC",
 	});
 };
+
+////////// Converter of °F to °C
+export const convertTemp = (temp, unit) => {
+	return unit === "C" ? Math.round(((temp - 32) * 5) / 9) : Math.round(temp);
+};

@@ -1,0 +1,8 @@
+select {
+    padding: 2px 4px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: #0e547bd2;
+    color: aliceblue;
+}

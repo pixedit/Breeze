@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { WeatherContext } from "../../assets/context/WeatherContext";
 import Loader from "../../assets/components/loader/Loader";
+import { convertTemp as convert } from "../../assets/utils/utils";
 import "./daily.css";
+
 const Daily = () => {
 	const { state } = useContext(WeatherContext);
 	const dailyForecast = state.dailyWeather;
@@ -15,13 +17,14 @@ const Daily = () => {
 			{dailyForecast &&
 				dailyForecast.map((day, index) => {
 					const icon = `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
-					console.log(day);
 					return (
 						<div className="daily-forecast" key={index}>
 							<div className="day-main">
 								<h4>{day.dt_txt.split(" ")[0]}</h4>
 								<div className="day-nutshel">
-									<p>{day.main.temp}°</p>
+									<p>
+										{convert(day.main.temp, state.unit)}°{state.unit}
+									</p>
 									<img src={icon} />
 									<h5>{day.weather[0].main}</h5>
 								</div>
@@ -34,19 +37,27 @@ const Daily = () => {
 									</div>
 									<div>
 										<dt>Temp</dt>
-										<dd>{day.main.temp}</dd>
+										<dd>
+											{convert(day.main.temp, state.unit)}°{state.unit}
+										</dd>
 									</div>
 									<div>
 										<dt>Feels Like</dt>
-										<dd>{day.main.feels_like}</dd>
+										<dd>
+											{convert(day.main.feels_like)}°{state.unit}
+										</dd>
 									</div>
 									<div>
 										<dt>min</dt>
-										<dd>{day.main.temp_min}</dd>
+										<dd>
+											{convert(day.main.temp_min, state.unit)}°{state.unit}
+										</dd>
 									</div>
 									<div>
 										<dt>max</dt>
-										<dd>{day.main.temp_max}</dd>
+										<dd>
+											{convert(day.main.temp_max, state.unit)}°{state.unit}
+										</dd>
 									</div>
 								</dl>
 							</div>

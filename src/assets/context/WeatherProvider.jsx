@@ -13,6 +13,7 @@ const initialState = {
 	dailyWeather: null,
 	loading: false,
 	error: null,
+	unit: "F",
 };
 ////////// reducer function
 const weatherReducer = (state, action) => {
@@ -29,6 +30,8 @@ const weatherReducer = (state, action) => {
 			return { ...state, loading: action.payload };
 		case "SET_ERROR":
 			return { ...state, error: action.payload };
+		case "SET_UNIT":
+			return { ...state, unit: action.payload };
 		default:
 			return state;
 	}
@@ -65,8 +68,13 @@ export const WeatherProvider = ({ children }) => {
 		}
 	};
 
+	const setUnit = (unit) => {
+		dispatch({ type: "SET_UNIT", payload: unit });
+	};
+
 	return (
-		<WeatherContext.Provider value={{ state, dispatch, fetchWeatherData }}>
+		<WeatherContext.Provider
+			value={{ state, dispatch, fetchWeatherData, setUnit }}>
 			{children}
 		</WeatherContext.Provider>
 	);
