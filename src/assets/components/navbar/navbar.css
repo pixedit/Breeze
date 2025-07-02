@@ -6,6 +6,7 @@
     background-color: #01304ad2;
     padding: 0.5rem 1.5rem;
     border-radius: 0 0 15px 15px;
+    position: relative;
 }
 
 
@@ -22,6 +23,7 @@ a:hover {
 .home-button {
     font-size: 22px;
 }
+
 
 /* ////////// NAVBAR RESPONSIVE  */
 @media (max-width:300px) {

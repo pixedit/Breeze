@@ -30,7 +30,11 @@
     flex-direction: column;
 }
 
-
+.day-main h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(120, 204, 207)
+}
 
 .day-nutshel {
     border: 1px solid rgb(156, 156, 156);

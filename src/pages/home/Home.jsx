@@ -4,12 +4,12 @@ import { WeatherContext } from "../../assets/context/WeatherContext";
 import { convertUnixToTime } from "../../assets/utils/utils";
 import Hourly from "../hourly/Hourly";
 import { convertTemp as convert } from "../../assets/utils/utils";
-
+import Loader from "../../assets/components/loader/Loader";
 const Home = () => {
 	const { state } = useContext(WeatherContext);
 	const data = state.currentWeather;
 
-	if (state.loading) return <p>Loading...</p>;
+	if (state.loading) return <Loader />;
 	if (!data) return <p>No weather data yet. Please search a city!</p>;
 
 	const sunrise = convertUnixToTime(data.sys.sunrise, data.timezone); // → "06:08 AM"
@@ -21,6 +21,9 @@ const Home = () => {
 				<div className="cur-temp-section">
 					<div className="left-section">
 						<dl>
+							<div className="bold">
+								<p>{data.weather[0].description}</p>
+							</div>
 							<div>
 								<dt>feels like:</dt>
 								<dd>
@@ -69,7 +72,6 @@ const Home = () => {
 					</div>
 					<div className="right-section">
 						<dl>
-							<div className="bold">{data.weather[0].description}</div>
 							<div>
 								<dt>min:</dt>
 								<dd>

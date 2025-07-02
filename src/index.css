@@ -1,9 +1,3 @@
-/* background-color: #37474F; */
-/* background-color: #E0C3A5; */
-/* background-color: #ECEFF1; */
-/* background-color: #B0BEC5; */
-/* background-color: #00796B; */
-/* background-color: goldenrod; */
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Vazirmatn:wght@100..900&display=swap');
 
 * {
@@ -14,9 +8,12 @@
 
 body {
     font-family: "Arimo", sans-serif;
-    height: 100vh;
-    background: linear-gradient(to bottom, #2f4c5b, #406f84, #5fa2c1);
+    background: linear-gradient(to bottom, #315060, #3a6578, #508aa5);
     color: #B0BEC5;
+    background-attachment: fixed;
+    -webkit-user-select: none;
+    user-select: none;
+    padding-bottom: 150px;
 }
 
 ul,
@@ -39,22 +36,32 @@ dl {
 }
 
 .weather-app {
-    margin: 0 5rem;
+    margin: 0 5rem 15rem 5rem;
     border-radius: 10px;
     padding: 0 4rem;
     background-color: #2f4c5ba5;
 }
 
-.wrapper {
-    background-color: rgba(24, 24, 24, 0.148);
-    padding: 0.5rem 1rem;
-    margin: 0.5rem auto;
-    border-radius: 15px;
+.logo {
+    width: 90px;
+    height: 40px;
+    position: absolute;
+    left: 0;
 }
 
+.search-wrapper {
+    margin: 0 auto;
+    max-width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 4rem;
+
+    position: relative;
+}
 
 .bold {
-    font-size: 22px;
+    font-size: 20px;
     color: rgb(218, 234, 234);
 }
 

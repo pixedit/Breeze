@@ -4,12 +4,16 @@ import Home from "./pages/home/Home";
 import Daily from "./pages/daily/Daily";
 import Hourly from "./pages/hourly/Hourly";
 import SearchBar from "./assets/components/searchBar/SearchBar";
+import Footer from "./assets/components/footer/Footer";
 
 const App = () => {
 	return (
 		<Router>
 			<div className="container">
-				<SearchBar />
+				<div className="search-wrapper">
+					<SearchBar />
+					<img src="public/logo/logo.png" className="logo" />
+				</div>
 				<div className="weather-app">
 					<Navbar />
 					<Routes>
@@ -19,6 +23,7 @@ const App = () => {
 					</Routes>
 				</div>
 			</div>
+			<Footer />
 		</Router>
 	);
 };
