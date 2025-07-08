@@ -24,11 +24,25 @@ a:hover {
     font-size: 22px;
 }
 
+.active {
+    color: rgba(6, 182, 153, 0.633);
+    transform: scale(1.1);
+}
 
 /* ////////// NAVBAR RESPONSIVE  */
 @media (max-width:300px) {
     .navbar {
         padding: 0.2rem 0.3rem;
+    }
+
+    .navbar a {
+        font-size: 12px;
+    }
+}
+
+@media (max-width:300px) {
+    .navbar {
+        padding: 0;
     }
 
     .navbar a {

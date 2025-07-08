@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useReducer } from "react";
 import { WeatherContext } from "./WeatherContext";
 import {
@@ -78,4 +79,8 @@ export const WeatherProvider = ({ children }) => {
 			{children}
 		</WeatherContext.Provider>
 	);
+};
+
+WeatherProvider.propTypes = {
+	children: PropTypes.node.isRequired,
 };
