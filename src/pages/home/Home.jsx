@@ -10,13 +10,18 @@ const Home = () => {
 	const data = state.currentWeather;
 
 	if (state.loading) return <Loader />;
-	if (!data) return <p>No weather data yet. Please search a city!</p>;
+	if (!data)
+		return (
+			<p style={{ textAlign: "center", padding: "0.5rem 0" }}>
+				No weather data yet. Please search a city!
+			</p>
+		);
 
 	const sunrise = convertUnixToTime(data.sys.sunrise, data.timezone); // → "06:08 AM"
 	const sunset = convertUnixToTime(data.sys.sunset, data.timezone); // → "07:49 PM"
 
 	return (
-		<div>
+		<div className="home-page">
 			{data && (
 				<div className="cur-temp-section">
 					<div className="left-section">

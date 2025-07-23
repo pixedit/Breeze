@@ -5,7 +5,7 @@
 
 .daily-forecast-wrapper h3 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: beige;
 }
 
@@ -57,6 +57,44 @@
 
 .day-detail {
     padding: 1rem;
-
     border-left: 1px solid rgb(198, 198, 198);
+}
+
+.day-detail-description {
+    color: rgb(228, 232, 236);
+    font-weight: 500;
+}
+
+@media(max-width:800px) {
+    .daily-forecast {
+        grid-template-columns: auto;
+        margin-top: 0.5rem;
+    }
+
+    .day-temp {
+        padding: 0 1rem;
+    }
+
+    .day-detail {
+        border: unset;
+    }
+
+    .day-detail p {
+        padding-left: 1rem;
+    }
+
+    .day-main {
+        border: unset !important;
+    }
+}
+
+@media(max-width:350px) {
+    .daily-forecast-wrapper {
+        margin: 0;
+    }
+
+    .daily-forecast-wrapper h3 {
+        font-size: 16px;
+        margin-top: 2rem;
+    }
 }

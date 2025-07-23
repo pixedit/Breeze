@@ -1,10 +1,10 @@
 footer {
     background-color: rgba(0, 0, 0, 0.486);
-    position: fixed;
     bottom: 0;
     padding: 2rem 3rem;
     border-top: 2px solid white;
     width: 100%;
+    margin-top: auto;
 }
 
 footer main {
@@ -48,4 +48,22 @@ footer main {
 .api {
     color: rgb(166, 195, 222);
     text-decoration: underline;
+}
+
+/* Responsive */
+
+@media(max-width: 650px) {
+
+
+    footer main {
+        display: block;
+    }
+
+    .about-developer {
+        margin-bottom: 2rem;
+    }
+
+    .about-breeze {
+        width: 100%;
+    }
 }

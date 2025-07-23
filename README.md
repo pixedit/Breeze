@@ -1,8 +1,52 @@
-# React + Vite
+# Welcome to **Breeze**!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Breeze is a lightweight weather app built for Practice and learning purposes. It uses _[OpenWeahter API](https://openweathermap.org/api)_, which offers a free tier with a rich set of features.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Responsive design for different screen sizes
+- Simple usage (just enter a city name)
+- Detailed weather data display
+- Hourly and daily forecast in a structured layout
+- Temperature unit toggle (Celsius to Fahrenheit and the opposit)
+
+## Technologies Used
+
+- HTML
+- CSS
+- JavaScript
+- React
+- Swiper
+- Vite
+
+## Installation
+
+1. Clone the repo
+
+```bash
+git clone https://github.com/pixedit/Breeze.git
+```
+
+2. Navigate into the project folder
+
+```bash
+cd Breeze
+```
+
+3. Install dependencies
+
+```bash
+npm install
+```
+
+4. Start the development server
+
+```bash
+npm run dev
+```
+
+> Just make sure you have [Node.js](https://nodejs.org/) installed.
+
+## Author
+
+Milad - [GitHub Profile](https://github.com/pixedit)

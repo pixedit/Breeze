@@ -34,6 +34,59 @@
     color: aliceblue;
 }
 
+.search-wrapper {
+    padding: 0 4rem;
+}
+
 .search button:hover {
     background-color: rgb(51, 138, 59);
+}
+
+.search-wrapper img {
+    padding-left: 1rem;
+}
+
+@media (max-width:600px) {
+    .search input {
+        font-size: 14px;
+        padding: 0 1rem;
+    }
+
+    .search {
+        margin: 1rem 0;
+    }
+
+    .search-wrapper {
+        margin-top: 0;
+    }
+
+    .search-wrapper img {
+        max-width: 80px;
+
+    }
+}
+
+@media (max-width:350px) {
+    .search input {
+        font-size: 14px;
+        font-weight: 500;
+        padding: 5px 10px;
+    }
+
+    .search button {
+        padding: 0.2rem 0.4rem;
+        font-weight: 500;
+        font-size: 12px;
+    }
+
+    /* .search {
+        width: 100%;
+    } */
+    .search-wrapper {
+        padding: 0;
+    }
+
+    .search-wrapper img {
+        display: none;
+    }
 }

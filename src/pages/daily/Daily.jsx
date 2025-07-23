@@ -62,7 +62,9 @@ const Daily = () => {
 								</dl>
 							</div>
 							<div className="day-detail">
-								<p>{day.weather[0].description}</p>
+								<p className="day-detail-description">
+									{day.weather[0].description}
+								</p>
 								<dl>
 									<div>
 										<dt>Visibility</dt>
